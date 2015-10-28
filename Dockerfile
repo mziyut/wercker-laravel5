@@ -1,21 +1,26 @@
 FROM php:5.6-cli
 
-#update repo
-
+# Update repo
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
         libbz2-dev \
+        libcurl3 \
+        libcurl3-dev \
         php-pear \
+        phpunit \
         curl \
         git \
-    && docker-php-ext-install iconv mcrypt \
+        php5-mysql \
+        php5-curl \
+        php5-mcrypt \
+    && docker-php-ext-install iconv mcrypt pdo_mysql curl \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 
-#Download dependencies
+# Download dependencies
 
 # Set memory limit
 RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
