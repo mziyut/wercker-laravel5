@@ -13,7 +13,9 @@ RUN apt-get update && apt-get install -y \
         phpunit \
         curl \
         git \
+        sqlite \
         php5-mysql \
+        php5-sqlite \
         php5-curl \
         php5-mcrypt \
     && docker-php-ext-install iconv mcrypt pdo_mysql curl \
