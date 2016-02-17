@@ -1,5 +1,8 @@
 # wercker-laravel5
 
+ [![Docker Stars](https://img.shields.io/docker/stars/_/ubuntu.svg)]()
+ [![Docker Pulls](https://img.shields.io/docker/pulls/mashape/kong.svg)]()
+
 Laravel5 testing box for wercker
 
 # wercker.yml example
