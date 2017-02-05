@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
+		libicu-dev \
         libbz2-dev \
         libcurl3 \
         libcurl3-dev \
@@ -23,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd
 
 # Download dependencies
+RUN pecl install intl
 
 # Set memory limit
 RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
@@ -39,6 +41,8 @@ RUN docker-php-ext-install \
     iconv \
     mcrypt \
     mbstring \
-    pdo_mysql 
+    pdo_mysql \
+	intl \
+	exif
 
 CMD ["php"]
