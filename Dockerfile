@@ -45,4 +45,12 @@ RUN docker-php-ext-install \
 	intl \
 	exif
 
+# Install node.
+RUN apt-get install -y nodejs npm
+RUN npm cache clean \
+	npm install n -g \
+	n 6.3.0
+RUN ln -sf /usr/local/bin/node /usr/bin/node
+RUN apt-get purge -y nodejs npm
+
 CMD ["php"]
