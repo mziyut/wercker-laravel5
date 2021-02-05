@@ -1,4 +1,4 @@
-FROM php:8.0.0-cli
+FROM php:8.0.2-cli
 
 # Update repo
 RUN apt-get update && apt-get install -y \
