@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "21:00"
+    timezone: Japan
+  open-pull-requests-limit: 10
+  reviewers:
+  - mziyut
+  assignees:
+  - mziyut
+  ignore:
+  - dependency-name: php
+    versions:
+    - 8.0.1.pre.cli
+    - 8.0.2.pre.cli
